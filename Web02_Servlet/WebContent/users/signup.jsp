@@ -1,3 +1,4 @@
+<%@page import="javax.swing.JOptionPane"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -18,6 +19,9 @@
 	String[] like=request.getParameterValues("like");
 	// textarea name="comment" 에 입력한 문자열
 	String comment=request.getParameter("comment");
+	
+		
+
 %>    
 <!DOCTYPE html>
 <html>
@@ -32,9 +36,14 @@
 	<p> 직업 : <%=job %></p>
 	<p> 관심사 </p>
 	<ul>
+	<%try{ %>
 		<%for(String tmp:like){ %>
 			<li><%=tmp %></li>
 		<%} %>
+	<%}catch(NullPointerException e){%>
+		<!--  JOptionPane.showMessageDialog(null, "관심사를 한가지 이상 선택해주세요.");-->
+			<% JOptionPane.showMessageDialog(null, "관심사를 한가지 이상 선택해주세요.");	%>
+	<%} %>
 	</ul>
 	<p> 하고 싶은말 :  <%=comment %></p>
 	<a href="signup_form.jsp">다시 입력해보기</a>
