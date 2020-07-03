@@ -20,6 +20,11 @@
 <title>/todo/insert.jsp</title>
 </head>
 <body>
-	<p>할일을 추가 했습니다. <a href="list.jsp">확인 ㄱ?</a></p>
+	<!-- <p>할일을 추가 했습니다. <a href="list.jsp">확인 ㄱ?</a></p>  -->
+	
+	<script>
+		alert("추가 완료");
+		location.href="list.jsp";
+	</script>
 </body>
 </html>

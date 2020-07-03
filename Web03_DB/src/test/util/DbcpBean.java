@@ -5,7 +5,6 @@ package test.util;
 
 import java.sql.Connection;
 
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
@@ -24,7 +23,6 @@ public class DbcpBean {
 			DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");
 			conn = ds.getConnection();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

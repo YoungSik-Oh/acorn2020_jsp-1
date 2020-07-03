@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/member/list.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
 <%
@@ -18,13 +19,22 @@
 
 %>
 <div class="container">
+	<div class="navbar navbar-expand-sm navbar-dark bg-primary">
+		<a class="navbar-brand" href="${pageContext.request.contextPath }/">Acorn</a>
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">Member</a></li>
+			<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/todo/list.jsp">Todo</a></li>
+		</ul>
+	</div>
 	<h1>회원 목록 입니다.</h1>
-	<table>
+	<table class="table table-hover table-sm">
 		<thead>
 			<tr>
 				<th>번호</th>
 				<th>이름</th>
 				<th>주소</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,10 +43,15 @@
 				<td><%=tmp.getNum() %></td>
 				<td><%=tmp.getName() %></td>
 				<td><%=tmp.getAddr() %></td>
+				<td><a href="updateform.jsp?num=<%= tmp.getNum()%>">수정</a></td>
+				<td><a href="delete.jsp?num=<%= tmp.getNum()%>">삭제</a></td>
+				
 			</tr>
 		<%} %>
 		</tbody>
 	</table>
+		<a href="insertform.jsp">회원 추가하러가기</a>
 </div>
+
 </body>
 </html>
