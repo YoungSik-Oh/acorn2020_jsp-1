@@ -46,7 +46,8 @@
 				<th class="col-2">번호</th>
 				<th class="col-5">할일</th>
 				<th class="col-3">날짜</th>
-				<th class="col-2">삭제</th>
+				<th class="col-1">수정</th>
+				<th class="col-1">삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -56,7 +57,8 @@
 				<td class="col-2"><%=tmp.getNum() %></td>
 				<td class="col-5"><%=tmp.getWork() %></td>
 				<td class="col-3"><%=tmp.getRegdate() %></td>
-				<td class="col-2"><a href="delete.jsp?num=<%=tmp.getNum() %>">삭제</a></td>
+				<td class="col-1"><a href="modify.jsp?num<%=tmp.getNum()%>">수정</a></td>
+				<td class="col-1"><a href="delete.jsp?num=<%=tmp.getNum() %>">삭제</a></td>
 				<!-- <td><a href="delete.jsp?num=999">삭제</a></td> -->
 			</tr>
 			<%} %>

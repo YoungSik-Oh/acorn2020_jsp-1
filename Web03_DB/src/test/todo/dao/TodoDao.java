@@ -133,4 +133,26 @@ public boolean delete(int num) {
 				return false;
 			}
 		}
+
+public boolean modify(TodoDto dto) {
+	Connection conn=null;
+	PreparedStatement pstmt=null;
+	int flag=0;
+	try {
+		conn=new DbcpBean().getConn();
+	String sql="update todo "
+			+ "set work=?, regdate=sysdate"
+			+ " where num=?";
+	pstmt=conn.prepareStatement(sql);
+	pstmt.setString(1, dto.getWork());
+	pstmt.setString(2, dto.getRegdate());
+	pstmt.setInt(3, dto.getNum());
+	pstmt.executeUpdate();
+	}catch(Exception e) {
+		
+	}
+	
+	return false;
+	
+	}
 }
