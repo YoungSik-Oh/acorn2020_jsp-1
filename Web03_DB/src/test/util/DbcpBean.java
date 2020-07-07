@@ -45,7 +45,9 @@ public class DbcpBean {
 		try {
 			initContext = new InitialContext();
 			Context envContext  = (Context)initContext.lookup("java:/comp/env");
+			// jdbc/myoracle 이라는 이름의 DataSource(Connection Pool)에서
 			DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");
+			// Connection 객체를 한개 가지고 온다.
 			conn = ds.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
