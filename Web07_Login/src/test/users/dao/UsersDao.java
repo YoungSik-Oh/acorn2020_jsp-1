@@ -16,6 +16,41 @@ public class UsersDao {
 		}
 		return dao;
 	}
+
+	// 인자로 전달된 아이디가 users 테이블에 존재하는지 여부를 리턴하는 메소드
+	public boolean isExist(String inputId) {
+		
+		boolean isExist=false;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection 객체의 참조값 얻어오기
+			conn = new DbcpBean().getConn();
+			// 실행할 sql 문 준비하기
+			String sql = "select id"
+					+ "	from users"
+					+ "	where id=?";
+			pstmt = conn.prepareStatement(sql);
+			//sql 문에 ? 에 바인딩 할 값이 있으면 바인딩하고 
+			pstmt.setString(1, inputId);
+			// select 문 수행하고 결과 받아오기
+			rs = pstmt.executeQuery();
+			// 반복문 돌면서 결과 값 추출하기
+			if (rs.next()) {
+				isExist=true;// 해당 아이디가 이미 존재 하는 경우
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)	rs.close();
+				if (pstmt != null)pstmt.close();
+				if (conn != null)conn.close();
+			} catch (Exception e) {}
+		}
+		return isExist; // 아이디 존재 여부를 리턴한다.
+	}
 	//회원정보(이메일)를 수정 반영하는 메소드
 	public boolean update(UsersDto dto) {
 		Connection conn = null;
