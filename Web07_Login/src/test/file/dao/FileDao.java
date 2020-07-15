@@ -79,11 +79,8 @@ public class FileDao {
 					pstmt.setString(3, dto.getOrgFileName());
 					pstmt.setString(4, dto.getSaveFileName());
 					pstmt.setLong(5, dto.getFileSize());
-					
 					//sql 문 수행하고 update or insert or delete 된 row 의 갯수 리턴 받기
 					flag=pstmt.executeUpdate();
-					
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}finally {
