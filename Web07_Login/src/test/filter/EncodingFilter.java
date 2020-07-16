@@ -45,6 +45,3 @@ public class EncodingFilter implements Filter{
 
 }
 
-
-
-
