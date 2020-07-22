@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css" />
 </head>
 <body>
-<div class="container">	
-	<jsp:include page="../Include/navbar3.jsp">
+<div class="container">
+	<jsp:include page="/Include/navbar3.jsp">
 		<jsp:param value="study" name="thisPage"/>
 	</jsp:include>
 	

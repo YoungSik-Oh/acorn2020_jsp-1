@@ -1,3 +1,24 @@
+CREATE TABLE board_cafe(
+	num NUMBER PRIMARY KEY,
+	writer VARCHAR2(100) NOT NULL,
+	title VARCHAR2(100) NOT NULL,
+	content	CLOB,
+	viewCount NUMBER, -- 조회수
+	regdate DATE
+);
+CREATE SEQUENCE board_cafe_seq;
+
+CREATE TABLE board_gallery(
+	num NUMBER PRIMARY KEY,
+	writer VARCHAR2(100),
+	caption VARCHAR2(200),
+	imgePath VARCHAR2(100),
+	regdate DATE
+);
+
+CREATE SEQUENCE board_gallery_seq;
+
+
 CREATE TABLE board_file(
 	num NUMBER PRIMARY KEY,
 	writer VARCHAR2(100) NOT NULL,

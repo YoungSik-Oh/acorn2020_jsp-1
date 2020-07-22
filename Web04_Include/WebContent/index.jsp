@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container">
-		<jsp:include page="/Include/navbar3.jsp">
+		<jsp:include page="Include/navbar3.jsp">
 			<jsp:param value="index" name="thisPage"/>
 		</jsp:include>
 			<ul>
