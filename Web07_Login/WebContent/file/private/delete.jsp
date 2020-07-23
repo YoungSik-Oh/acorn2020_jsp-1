@@ -7,7 +7,7 @@
  		// 1. 파라미터로 전달되는 삭제할 파일의 번호를 읽어온다.
     	int num=Integer.parseInt(request.getParameter("num"));
     	//2. db에서 해당 파일의 정보를 읽어온다.
-		FileDto dto=FileDao.getInstance().getdata(num);
+		FileDto dto=FileDao.getInstance().getData(num);
     	// 로그인 된 아이디와 글 작성자가 같을때만 삭제 되도록 한다.
     	String id=(String)session.getAttribute("id");
     	//만일 글 작성자가 로그인된 아이디와 같지 않으면 
